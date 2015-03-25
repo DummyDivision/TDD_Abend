@@ -4,15 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class RulesTest {
+public class CellTest {
 
 	@Test
-	public void test_isMine() {
-		int cellIndex = 4;
-
+	public void testIsMine() {
         Cell testCell = new Cell();
-
-
         assertTrue(testCell.IsMine());
 	}
 
