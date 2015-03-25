@@ -34,4 +34,12 @@ public class CellTest {
     	assertFalse(testCell.isCovered());
     	
     }
+
+    @Test
+    public void testGetNumberOfSurroundingMines() {
+        Cell testCell = new Cell();
+
+        assertEquals(0, testCell.getNumberOfSurroundingMines());
+
+    }
 }
