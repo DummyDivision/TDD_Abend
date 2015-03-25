@@ -13,7 +13,7 @@ public class RulesTest {
         Cell testCell = new Cell();
 
 
-        assertTrue(testCell.IsMine()):
+        assertTrue(testCell.IsMine());
 	}
 
 
