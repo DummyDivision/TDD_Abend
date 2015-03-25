@@ -19,4 +19,11 @@ public class CellTest {
 
 	}
 
+    @Test
+    public void testIsCovered() {
+        Cell testCell = new Cell();
+
+        assertTrue(testCell.isCovered());
+
+    }
 }
