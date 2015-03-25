@@ -8,10 +8,15 @@ public class CellTest {
 
 	@Test
 	public void testIsMine() {
-        Cell testCell = new Cell();
-        assertTrue(testCell.IsMine());
+		Cell testCell = new Cell();
+		assertTrue(testCell.IsMine());
 	}
 
+	@Test
+	public void testIsField() {
+		Cell testCell = new Cell(false);
+		assertFalse(testCell.IsMine());
 
+	}
 
 }
