@@ -4,6 +4,7 @@ public class Cell {
 
     boolean isMine = true;
     private boolean isCovered = true;
+    private Cell[] ghosts;
 
     public Cell(boolean isMine) {
         this.isMine = isMine;
@@ -25,7 +26,13 @@ public class Cell {
     }
 
 	public int getNumberOfSurroundingMines() {
-		return 0;
+		if (ghosts == null){
+            return 0;
+        }
+        return 1;
 	}
 
+    public void setGhost(Cell[] ghost) {
+        this.ghosts = ghost;
+    }
 }
