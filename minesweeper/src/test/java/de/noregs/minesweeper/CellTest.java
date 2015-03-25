@@ -2,6 +2,8 @@ package de.noregs.minesweeper;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 public class CellTest {
@@ -42,4 +44,15 @@ public class CellTest {
         assertEquals(0, testCell.getNumberOfSurroundingMines());
 
     }
+    
+    @Test
+    public void testGetNumberOfSurroundingMinesIfOneMinePresent() {
+    Cell neighboringCell = new Cell(false);
+    Cell testCell = new Cell();
+    Cell[] ghost = new Cell[8];
+    ghost[0] = neighboringCell;
+    testCell.setGhost(ghost);
+
+    assertEquals(1, testCell.getNumberOfSurroundingMines());
+    
 }
