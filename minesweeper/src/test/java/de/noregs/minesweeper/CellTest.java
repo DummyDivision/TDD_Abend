@@ -26,4 +26,12 @@ public class CellTest {
         assertTrue(testCell.isCovered());
 
     }
+    
+    @Test
+    public void testIsUncovered() {
+    	Cell testCell = new Cell();
+    	testCell.setCover(false);
+    	assertFalse(testCell.isCovered());
+    	
+    }
 }
