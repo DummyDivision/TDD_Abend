@@ -24,4 +24,8 @@ public class Cell {
         this.isCovered = cover;
     }
 
+	public int getNumberOfSurroundingMines() {
+		return 0;
+	}
+
 }
