@@ -1,0 +1,7 @@
+.project
+.classpath
+.settings
+*.jar
+*.class
+target/maven-archiver*
+.idea
