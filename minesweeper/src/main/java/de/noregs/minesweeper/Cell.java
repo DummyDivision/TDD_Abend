@@ -15,4 +15,8 @@ public class Cell {
 		return isMine;
 	}
 
+	public boolean isCovered() {
+		return true;
+	}
+
 }
