@@ -5,3 +5,4 @@
 *.class
 target/maven-archiver*
 .idea
+minesweeper/minesweeper.iml
