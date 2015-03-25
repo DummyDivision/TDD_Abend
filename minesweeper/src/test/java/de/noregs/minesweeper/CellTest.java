@@ -9,13 +9,13 @@ public class CellTest {
 	@Test
 	public void testIsMine() {
 		Cell testCell = new Cell();
-		assertTrue(testCell.IsMine());
+		assertTrue(testCell.isMine());
 	}
 
 	@Test
 	public void testIsField() {
 		Cell testCell = new Cell(false);
-		assertFalse(testCell.IsMine());
+		assertFalse(testCell.isMine());
 
 	}
 

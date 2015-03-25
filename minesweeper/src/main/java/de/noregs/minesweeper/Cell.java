@@ -2,8 +2,17 @@ package de.noregs.minesweeper;
 
 public class Cell {
 
-	public boolean IsMine() {
-		return true;
+    boolean isMine = true;
+
+    public Cell(boolean isMine) {
+        this.isMine = isMine;
+    }
+
+    public Cell() {
+    }
+
+    public boolean isMine() {
+		return isMine;
 	}
 
 }
