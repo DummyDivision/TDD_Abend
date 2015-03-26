@@ -90,4 +90,15 @@ public class CellTest {
 
     }
 
+	@Test
+	public void testToStringIfUncoveredAndSurroundingMinesPresent() {
+		Cell testCell = new Cell();
+		testCell.setGhost(new Cell[] {
+				new Cell(),
+				new Cell(),
+				new Cell(false)
+				});
+
+		Integer.parseInt(testCell.toString());
+	}
 }
