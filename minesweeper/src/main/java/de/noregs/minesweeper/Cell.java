@@ -18,6 +18,11 @@ public class Cell {
 	public Cell() {
 	}
 
+	@Override
+	public String toString() {
+		return ".";
+	}
+
 	public boolean isMine() {
 		return isMine;
 	}
