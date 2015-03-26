@@ -3,17 +3,19 @@ package de.noregs.minesweeper;
 
 public class Cell {
 
-	boolean isMine = true;
+	private boolean isMine = true;
 	private boolean isCovered = true;
-	private Cell[] ghosts;
+	private Cell[] ghosts = new Cell[0];
 
-	public Cell(boolean isMine) {
-		this.isMine = isMine;
-        this.ghosts = new Cell[0];
+    public void setMine(boolean isMine) {
+        this.isMine = isMine;
+    }
+
+    public Cell(boolean isMine) {
+		setMine(isMine);
 	}
 
 	public Cell() {
-		this.ghosts = new Cell[0];
 	}
 
 	public boolean isMine() {
@@ -24,19 +26,23 @@ public class Cell {
 		return isCovered;
 	}
 
-	public void setCover(boolean cover) {
-        if(cover == false)
-            for(Cell cell: ghosts){
-                cell.setCover(false);
-            }
-		this.isCovered = cover;
+	private void setCover(boolean isCovered) {
+        this.isCovered = isCovered;
 	}
 
-	public int getNumberOfSurroundingMines() {
+    public void uncover() {
+            setCover(false);
+            for(Cell cell: ghosts) {
+                cell.uncover();
+            }
+    }
+
+    public int getNumberOfSurroundingMines() {
 		int result = 0;
 		for (Cell cell : ghosts) {
-			if (cell.isMine())
-				result++;
+			if (cell.isMine()) {
+                result++;
+            }
 		}
 		return result;
 	}

@@ -32,9 +32,8 @@ public class CellTest {
 	@Test
 	public void testIsUncovered() {
 		Cell testCell = new Cell();
-		testCell.setCover(false);
+		testCell.uncover();
 		assertFalse(testCell.isCovered());
-
 	}
 
 	@Test
@@ -72,12 +71,14 @@ public class CellTest {
 	public void testUncoverSurroundingMinesIfNoMinesPresent() {
 		Cell testCell = new Cell();
 		Cell[] ghost = new Cell[8];
-		for (int i = 0; i < ghost.length; i++)
-			ghost[i] = new Cell(false);
+		for (int i = 0; i < ghost.length; i++) {
+            ghost[i] = new Cell(false);
+        }
 		testCell.setGhost(ghost);
 		
-		testCell.setCover(false);
-		for (Cell cell : testCell.getGhost())
-			assertFalse(cell.isCovered());
+		testCell.uncover();
+		for (Cell cell : testCell.getGhost()) {
+            assertFalse(cell.isCovered());
+        }
 	}
 }
