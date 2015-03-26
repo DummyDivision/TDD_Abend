@@ -58,9 +58,25 @@ public class CellTest {
 	@Test
 	public void testGetNumberOfSurroundingMinesIfTwoMinesPresent() {
 		Cell testCell = new Cell();
-		testCell.setGhost(new Cell[] { new Cell(), new Cell(), new Cell(false) });
+		testCell.setGhost(new Cell[] { 
+				new Cell(), 
+				new Cell(), 
+				new Cell(false) 
+				});
 
 		assertEquals(2, testCell.getNumberOfSurroundingMines());
 
+	}
+	
+	public void testUncoverSurroundingMinesIfNoMinesPresent() {
+		Cell testCell = new Cell();
+		Cell[] ghost = new Cell[8];
+		for (int i = 0; i < ghost.length; i++)
+			ghost[i] = new Cell(false);
+		testCell.setGhost(ghost);
+		
+		testCell.setCover(false);
+		for (Cell cell : testCell.getGhost())
+			assertFalse(cell.isCovered());
 	}
 }
