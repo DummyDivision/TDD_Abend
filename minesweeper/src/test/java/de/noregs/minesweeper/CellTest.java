@@ -48,7 +48,9 @@ public class CellTest {
 	public void testGetNumberOfSurroundingMinesIfOneMinePresent() {
 
 		Cell testCell = new Cell();
-		testCell.setGhost(new Cell[] { new Cell() });
+		IGhost ghost = new Ghost();
+		ghost.setCells(new Cell[] { new Cell() });
+		testCell.setGhost(ghost);
 
 		assertEquals(1, testCell.getNumberOfSurroundingMines());
 
@@ -57,11 +59,13 @@ public class CellTest {
 	@Test
 	public void testGetNumberOfSurroundingMinesIfTwoMinesPresent() {
 		Cell testCell = new Cell();
-		testCell.setGhost(new Cell[] { 
+		IGhost ghost = new Ghost();
+		ghost.setCells(new Cell[] { 
 				new Cell(), 
 				new Cell(), 
-				new Cell(false) 
+				new Cell(false)
 				});
+		testCell.setGhost(ghost);
 
 		assertEquals(2, testCell.getNumberOfSurroundingMines());
 
@@ -70,14 +74,16 @@ public class CellTest {
     @Test
 	public void testUncoverSurroundingMinesIfNoMinesPresent() {
 		Cell testCell = new Cell();
-		Cell[] ghost = new Cell[8];
-		for (int i = 0; i < ghost.length; i++) {
-            ghost[i] = new Cell(false);
+		IGhost ghost = new Ghost();
+		Cell[] cells = new Cell[8];
+		for (int i = 0; i < cells.length; i++) {
+            cells[i] = new Cell(false);
         }
+		ghost.setCells(cells);
 		testCell.setGhost(ghost);
 		
 		testCell.uncover();
-		for (Cell cell : testCell.getGhost()) {
+		for (Cell cell : testCell.getGhost().getCells()) {
             assertFalse(cell.isCovered());
         }
 	}
@@ -90,4 +96,10 @@ public class CellTest {
 
     }
 
+    @Test
+    public void testGetGhostReturnsIGhost() {
+		Cell testCell = new Cell();
+	
+		assertTrue(testCell.getGhost() instanceof IGhost);
+	}
 }

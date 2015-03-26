@@ -5,7 +5,7 @@ public class Cell {
 
 	private boolean isMine = true;
 	private boolean isCovered = true;
-	private Cell[] ghosts = new Cell[0];
+	private IGhost ghosts = new Ghost();
 
     public void setMine(boolean isMine) {
         this.isMine = isMine;
@@ -37,14 +37,14 @@ public class Cell {
 
     public void uncover() {
             setCover(false);
-            for(Cell cell: ghosts) {
+            for(Cell cell: ghosts.getCells()) {
                 cell.uncover();
             }
     }
 
     public int getNumberOfSurroundingMines() {
 		int result = 0;
-		for (Cell cell : ghosts) {
+		for (Cell cell : ghosts.getCells()) {
 			if (cell.isMine()) {
                 result++;
             }
@@ -53,11 +53,11 @@ public class Cell {
 	}
 
 
-	public void setGhost(Cell[] ghost) {
+	public void setGhost(IGhost ghost) {
 		this.ghosts = ghost;
 	}
 
-    public Cell[] getGhost() {
+    public IGhost getGhost() {
         return ghosts;
     }
 }
