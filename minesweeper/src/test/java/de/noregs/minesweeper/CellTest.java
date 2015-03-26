@@ -81,4 +81,13 @@ public class CellTest {
             assertFalse(cell.isCovered());
         }
 	}
+
+    @Test
+    public void testToStringIfCovered() {
+        Cell testCell = new Cell();
+
+        assertTrue(testCell.toString().equals("."));
+
+    }
+
 }
