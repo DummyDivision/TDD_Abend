@@ -9,6 +9,7 @@ public class Cell {
 
 	public Cell(boolean isMine) {
 		this.isMine = isMine;
+        this.ghosts = new Cell[0];
 	}
 
 	public Cell() {
@@ -24,6 +25,10 @@ public class Cell {
 	}
 
 	public void setCover(boolean cover) {
+        if(cover == false)
+            for(Cell cell: ghosts){
+                cell.setCover(false);
+            }
 		this.isCovered = cover;
 	}
 
@@ -36,7 +41,12 @@ public class Cell {
 		return result;
 	}
 
+
 	public void setGhost(Cell[] ghost) {
 		this.ghosts = ghost;
 	}
+
+    public Cell[] getGhost() {
+        return ghosts;
+    }
 }

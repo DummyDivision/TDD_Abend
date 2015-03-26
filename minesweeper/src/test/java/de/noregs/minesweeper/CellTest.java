@@ -67,7 +67,8 @@ public class CellTest {
 		assertEquals(2, testCell.getNumberOfSurroundingMines());
 
 	}
-	
+
+    @Test
 	public void testUncoverSurroundingMinesIfNoMinesPresent() {
 		Cell testCell = new Cell();
 		Cell[] ghost = new Cell[8];
