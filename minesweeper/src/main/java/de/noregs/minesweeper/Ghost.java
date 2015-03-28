@@ -2,14 +2,14 @@ package de.noregs.minesweeper;
 
 public class Ghost implements IGhost {
 
+	private Cell[] cells = new Cell[0];
+
 	public Cell[] getCells() {
-		// TODO Auto-generated method stub
-		return null;
+		return cells;
 	}
 
 	public void setCells(Cell[] cells) {
-		// TODO Auto-generated method stub
-		
+		this.cells = cells;
 	}
 
 }
